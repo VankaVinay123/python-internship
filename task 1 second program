@@ -1,0 +1,11 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df = sns.load_dataset('iris')
+print(df.head())
+plt.figure(figsize=(10, 6))
+sns.barplot(x='species', y='sepal_length', data=df, ci=None)
+plt.title('Average Sepal Length by Species')
+plt.ylabel('Average Sepal Length (cm)')
+plt.xlabel('Species')
+plt.show()
