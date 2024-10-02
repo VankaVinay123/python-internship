@@ -1,0 +1,29 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+driver = webdriver.Chrome()
+
+form_url = 'https://example.com/form'  
+driver.get(form_url)
+
+data = {
+    'name': 'John Doe',
+    'email': 'johndoe@example.com',
+    'message': 'Hello, this is a test message!'
+}
+
+driver.find_element(By.NAME, 'name').send_keys(data['name'])
+driver.find_element(By.NAME, 'email').send_keys(data['email'])
+driver.find_element(By.NAME, 'message').send_keys(data['message'])
+
+driver.find_element(By.XPATH, '//input[@type="submit"]').click()
+
+time.sleep(3)
+
+response = driver.page_source
+print(response)  # Print the entire response HTML
+
+
+driver.quit()
