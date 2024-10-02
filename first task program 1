@@ -1,0 +1,13 @@
+import pandas as pd
+df = pd.read_csv('data.csv')  
+print("First few rows of the DataFrame:")
+print(df.head())
+average_score = df['score'].mean()
+print(f'Average score: {average_score}')
+
+print("Descriptive statistics:")
+print(df.describe())
+
+max_score = df['score'].max()
+min_score = df['score'].min()
+print(f'Max score: {max_score}, Min score: {min_score}')
